@@ -20,11 +20,11 @@
 
 #### API
 A API de eventos está disponivel em:
-http://5b840ba5db24a100142dcd8c.mockapi.io/api/events
+http://5f5a8f24d44d640016169133.mockapi.io/api/events
 
-Para acessar cada detalhe do evento basta adicionar o ID do item ao final da URL. Ex: http://5b840ba5db24a100142dcd8c.mockapi.io/api/events/1
+Para acessar cada detalhe do evento basta adicionar o ID do item ao final da URL. Ex: http://5f5a8f24d44d640016169133.mockapi.io/api/events/1
 
-Para realizar o check-in faça um POST no seguinte endereço: http://5b840ba5db24a100142dcd8c.mockapi.io/api/checkin
+Para realizar o check-in faça um POST no seguinte endereço: http://5f5a8f24d44d640016169133.mockapi.io/api/checkin
 
 O POST deve conter os dados do interessado (Nome, e-mail) e o id do evento. Ex:
 
