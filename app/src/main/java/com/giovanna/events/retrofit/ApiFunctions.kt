@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface Endpoint {
+interface ApiFunctions {
 
     @GET("events/")
     fun getEventsList() : Call<List<Event>>
