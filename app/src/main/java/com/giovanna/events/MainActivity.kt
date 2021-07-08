@@ -1,5 +1,6 @@
 package com.giovanna.events
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             .getRetrofitInstance("https://5f5a8f24d44d640016169133.mockapi.io/api/")
 
         val endpoint = retrofitClient.create<Endpoint>()
-        val callback = endpoint.getEvents()
+        val callback = endpoint.getEventsList()
 
         callback.enqueue(object : Callback<List<Event>> {
             override fun onFailure(call: Call<List<Event>>, t: Throwable) {
@@ -44,12 +45,19 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     val layoutManager = LinearLayoutManager(baseContext, LinearLayoutManager.VERTICAL, false)
-                    val adapter = EventItemAdapter(items)
                     rvEvents.layoutManager = layoutManager
-                    rvEvents.adapter = adapter
+                    rvEvents.adapter = EventItemAdapter(items) {
+                        id -> openDetail(id)
+                    }
                 }
             }
         })
 
+    }
+
+    fun openDetail(id: String){
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra("eventId", id)
+        this.startActivity(intent)
     }
 }

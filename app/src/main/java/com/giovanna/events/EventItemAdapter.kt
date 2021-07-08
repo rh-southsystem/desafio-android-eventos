@@ -8,7 +8,8 @@ import com.giovanna.events.models.Event
 import kotlinx.android.synthetic.main.item_event.view.*
 
 class EventItemAdapter(
-        private val list: List<Event>
+    private val list: List<Event>,
+    private val itemClickListener: (String) -> Unit
 ) : RecyclerView.Adapter<EventItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,6 +22,10 @@ class EventItemAdapter(
         val item = list[position]
 
         holder.tvTitle.text = item.title
+
+        holder.itemView.setOnClickListener {
+            itemClickListener(item.id)
+        }
     }
 
     override fun getItemCount(): Int {
